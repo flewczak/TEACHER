@@ -1,0 +1,21 @@
+
+--wymuszenie wprowadzania tylko duzych liter pola NAZWISKO i IMIE
+create or replace TRIGGER upper_stud BEFORE INSERT ON STUDENCI FOR EACH ROW
+BEGIN
+  :new.IMIE := UPPER(:new.IMIE);
+  :new.NAZWISKO := UPPER(:new.NAZWISKO);
+END;
+/
+--wymuszenie wprowadzania tylko duzych liter pola KOD_PRZEDMIOTU i NAZWA
+create or replace TRIGGER upper_przed BEFORE INSERT ON PRZEDMIOTY FOR EACH ROW
+BEGIN
+  :new.KOD_PRZEDMIOTU := UPPER(:new.KOD_PRZEDMIOTU);
+  :new.NAZWA := UPPER(:new.NAZWA);
+END;
+/
+--wymuszenie wprowadzania tylko duzych liter pola RODZAJ_SEMESTRU
+create or replace TRIGGER upper_real BEFORE INSERT ON REALIZACJE FOR EACH ROW
+BEGIN
+  :new.RODZAJ_SEMESTRU := UPPER(:new.RODZAJ_SEMESTRU);
+END;
+/
